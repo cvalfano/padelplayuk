@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Phone, Mail } from 'lucide-react';
+import { Globe, Mail } from 'lucide-react';
 import { theme } from '../../utils/theme';
 import type { Database } from '../../types/supabase';
 
@@ -22,12 +22,6 @@ export default function CourtInfo({ court }: CourtInfoProps) {
               </a>
             </div>
           )}
-          <div className="flex items-center">
-            <Phone className="h-5 w-5 mr-2 text-white/70" />
-            <a href={`tel:${court.phone}`} className={`${theme.text.secondary} hover:text-white`}>
-              {court.phone}
-            </a>
-          </div>
           <div className="flex items-center">
             <Mail className="h-5 w-5 mr-2 text-white/70" />
             <a href={`mailto:${court.email}`} className={`${theme.text.secondary} hover:text-white`}>
