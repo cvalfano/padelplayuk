@@ -15,16 +15,17 @@ export function useRegionCounts() {
       try {
         const { data, error } = await supabase
           .from('courts')
-          .select('region')
-          .not('region', 'is', null);
+          .select('region');
 
         if (error) throw error;
 
         // Count courts by region
-        const counts = data.reduce((acc: Record<string, number>, court) => {
-          acc[court.region] = (acc[court.region] || 0) + 1;
-          return acc;
-        }, {});
+        const counts: Record<string, number> = {};
+        data?.forEach(court => {
+          if (court.region) {
+            counts[court.region] = (counts[court.region] || 0) + 1;
+          }
+        });
 
         // Convert to array and sort by count
         const sortedCounts = Object.entries(counts)
@@ -34,6 +35,7 @@ export function useRegionCounts() {
         setRegionCounts(sortedCounts);
       } catch (error) {
         console.error('Error fetching region counts:', error);
+        setRegionCounts([]);
       } finally {
         setLoading(false);
       }

@@ -23,7 +23,44 @@ export default function RegionsSection() {
         </Link>
       </div>
       
-      {/* Rest of the component remains the same */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {loading ? (
+          // Loading skeleton
+          Array.from({ length: 12 }).map((_, index) => (
+            <div key={index} className="animate-pulse">
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-white/10"></div>
+                <div className="h-6 bg-white/10 rounded w-32"></div>
+              </div>
+              <div className="mt-2 ml-6 h-4 bg-white/10 rounded w-16"></div>
+            </div>
+          ))
+        ) : regionCounts.length > 0 ? (
+          regionCounts.map(({ region, count }) => (
+            <Link
+              key={region}
+              to={`/locations?region=${encodeURIComponent(region)}`}
+              className="group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-white/20 group-hover:bg-white transition-colors"></div>
+                <span className="text-white/90 font-medium group-hover:text-white transition-colors">
+                  {region}
+                </span>
+              </div>
+              <div className="mt-1 ml-6">
+                <span className="text-sm text-white/70 group-hover:text-white/90 transition-colors">
+                  {count} {count === 1 ? 'club' : 'clubs'}
+                </span>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <div className="col-span-full text-center text-white/70">
+            No regions found
+          </div>
+        )}
+      </div>
     </div>
   );
 }
