@@ -1,7 +1,6 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { theme } from '../../utils/theme';
 import MapPreview from './MapPreview';
 
 interface CourtCardProps {
@@ -18,13 +17,12 @@ export default function CourtCard({ id, name, location, coordinates }: CourtCard
   return (
     <Link 
       to={`/courts/${id}`}
-      className={`
-        group block ${theme.card.base} overflow-hidden
+      className="
+        group block bg-[#080B3C] rounded-lg overflow-hidden
         transition-all duration-300 ease-out
         hover:shadow-2xl hover:shadow-white/5
         hover:translate-y-[-4px]
-        hover:border-white/30
-      `}
+      "
     >
       <div className="aspect-[16/9] overflow-hidden">
         <MapPreview 
@@ -39,7 +37,7 @@ export default function CourtCard({ id, name, location, coordinates }: CourtCard
         </h3>
         <div className="flex items-center mt-3">
           <MapPin className="h-4 w-4 mr-2 flex-shrink-0 text-white/70 group-hover:text-white/90 transition-colors" />
-          <span className={`text-sm ${theme.text.secondary} group-hover:text-white/90 transition-colors`}>
+          <span className="text-sm text-white/70 group-hover:text-white/90 transition-colors">
             {location}
           </span>
         </div>
