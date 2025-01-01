@@ -1,7 +1,6 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { theme } from '../../utils/theme';
 import MapPreview from '../locations/MapPreview';
 
 interface HomeCourtCardProps {
@@ -18,7 +17,7 @@ export default function HomeCourtCard({ id, name, location, coordinates }: HomeC
   return (
     <Link 
       to={`/courts/${id}`}
-      className={`block ${theme.card.base} ${theme.card.hover}`}
+      className="block bg-[#080B3C] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
     >
       <div className="aspect-[16/9]">
         <MapPreview 

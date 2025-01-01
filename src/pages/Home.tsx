@@ -39,7 +39,7 @@ export default function Home() {
     <div className="min-h-screen bg-dark">
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-3 sm:px-8 py-8">
-        <div className={`${theme.card.base} overflow-hidden`}>
+        <div className="bg-[#080B3C] rounded-lg overflow-hidden">
           <div className="relative h-[400px] bg-cover bg-center"
             style={{
               backgroundImage: `linear-gradient(rgba(3, 0, 21, 0.7), rgba(3, 0, 21, 0.7)), url('https://plus.unsplash.com/premium_photo-1708692919464-b5608dd10542?q=80&w=2070&auto=format&fit=crop')`
@@ -52,10 +52,10 @@ export default function Home() {
                 </h1>
                 <Link
                   to="/locations"
-                  className={`${theme.button.primary} ${theme.button.base} inline-flex items-center text-lg py-2 px-6`}
+                  className="group inline-flex items-center text-lg bg-white text-dark hover:bg-white/90 font-bold rounded-full py-2 px-6 transition-all duration-200"
                 >
                   Explore locations
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-5 w-5 transform transition-transform duration-200 group-hover:translate-x-1" />
                 </Link>
               </div>
             </div>
@@ -72,10 +72,10 @@ export default function Home() {
           </div>
           <Link
             to="/locations"
-            className="inline-flex items-center text-sm border-2 border-white text-white hover:bg-white hover:text-dark rounded-full px-4 py-2 transition-all duration-200"
+            className="group inline-flex items-center text-sm border-2 border-white text-white hover:bg-white hover:text-dark rounded-full px-4 py-2 transition-all duration-200"
           >
             View all
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="ml-2 h-5 w-5 transform transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
         </div>
 

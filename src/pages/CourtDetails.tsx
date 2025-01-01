@@ -13,10 +13,12 @@ export default function CourtDetails() {
   const { id } = useParams<{ id: string }>();
   const { court, loading, error } = useCourtData(id || '');
 
+  // Early return if no ID
   if (!id) {
     return <Navigate to="/locations" replace />;
   }
 
+  // Loading state
   if (loading) {
     return (
       <div className="min-h-screen bg-dark flex items-center justify-center">
@@ -25,14 +27,17 @@ export default function CourtDetails() {
     );
   }
 
+  // Error or no court found
   if (error || !court) {
     return (
       <div className="min-h-screen bg-dark flex items-center justify-center">
         <div className="text-center">
           <h2 className={`text-2xl ${theme.text.heading} mb-2`}>
-            Oops! Something went wrong
+            {error || 'Court not found'}
           </h2>
-          <p className={theme.text.secondary}>{error || 'Court not found'}</p>
+          <p className={theme.text.secondary}>
+            The court you're looking for might have been moved or deleted.
+          </p>
         </div>
       </div>
     );
@@ -46,8 +51,8 @@ export default function CourtDetails() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <CourtInfo court={court} />
-            <CourtAmenities amenities={court.amenities} />
-            <CourtRules rules={court.rules} />
+            <CourtAmenities amenities={court.amenities || []} />
+            <CourtRules rules={court.rules || []} />
           </div>
           
           <div className="lg:col-span-1">
