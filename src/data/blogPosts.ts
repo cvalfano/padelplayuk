@@ -4,11 +4,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: 'welcome-to-clubhouse',
     title: "Welcome to the Clubhouse",
-    date: new Date().toLocaleDateString('en-GB', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    }),
+    date: "31st December 2023",
     label: "announcements",
     image: "https://plus.unsplash.com/premium_photo-1707862953516-9dd3032b69a8?w=1200&auto=format&fit=crop&q=60",
     excerpt: "Welcome to Padel Play UK! We're thrilled to have you here at our digital clubhouse where padel enthusiasts across the United Kingdom can discover and connect with courts nationwide.",
@@ -18,6 +14,7 @@ As we're just getting started, you might encounter a few bugs, glitches, or typo
 
 Your feedback is invaluable to us. If you spot something that needs attention or have suggestions for improvement, don't hesitate to reach out. We're building this platform for the padel community, and your input helps shape its development.
 
-Thank you for being part of our early journey. Together, we're making padel more accessible across the UK, one court at a time.`
+Thank you for being part of our early journey. Together, we're making padel more accessible across the UK, one court at a time.`,
+    readingTime: "1 min read"
   }
 ];

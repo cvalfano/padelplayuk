@@ -11,8 +11,8 @@ interface CourtInfoProps {
 
 export default function CourtInfo({ court }: CourtInfoProps) {
   return (
-    <div className="py-4 border-b border-white/10">
-      <div className="space-y-6">
+    <div className="py-5 border-b border-white/10">
+      <div className="space-y-4">
         <div className="flex flex-col gap-2">
           {court.website && (
             <div className="flex items-center">

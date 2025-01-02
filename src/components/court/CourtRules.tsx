@@ -15,8 +15,8 @@ export default function CourtRules({ rules }: CourtRulesProps) {
   }
 
   return (
-    <div className="py-8 border-b border-white/10">
-      <h2 className={`${theme.text.heading} text-2xl mb-6`}>Court rules</h2>
+    <div className="py-5 border-b border-white/10">
+      <h2 className={`${theme.text.heading} text-2xl mb-4`}>Court rules</h2>
       <div className={`${theme.card.base} p-6`}>
         <div className="flex items-center gap-2 mb-4">
           <AlertCircle className="h-5 w-5 text-white/70" />

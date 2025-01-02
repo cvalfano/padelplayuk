@@ -13,12 +13,10 @@ export default function CourtDetails() {
   const { id } = useParams<{ id: string }>();
   const { court, loading, error } = useCourtData(id || '');
 
-  // Early return if no ID
   if (!id) {
     return <Navigate to="/locations" replace />;
   }
 
-  // Loading state
   if (loading) {
     return (
       <div className="min-h-screen bg-dark flex items-center justify-center">
@@ -27,7 +25,6 @@ export default function CourtDetails() {
     );
   }
 
-  // Error or no court found
   if (error || !court) {
     return (
       <div className="min-h-screen bg-dark flex items-center justify-center">
@@ -48,15 +45,28 @@ export default function CourtDetails() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <CourtHeader name={court.name} />
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           <div className="lg:col-span-2">
-            <CourtInfo court={court} />
-            <CourtAmenities amenities={court.amenities || []} />
-            <CourtRules rules={court.rules || []} />
+            <div className="space-y-5">
+              <CourtInfo court={court} />
+              
+              <div className="lg:hidden">
+                <div className="h-[300px] mb-5">
+                  <CourtMap 
+                    location={court}
+                    className="h-full w-full rounded-lg overflow-hidden"
+                  />
+                </div>
+                <CourtLocationDetails location={court} />
+              </div>
+
+              <CourtAmenities amenities={court.amenities || []} />
+              <CourtRules rules={court.rules || []} />
+            </div>
           </div>
           
-          <div className="lg:col-span-1">
-            <div className="sticky top-24 space-y-6">
+          <div className="hidden lg:block lg:col-span-1">
+            <div className="sticky top-24 space-y-5">
               <div className="h-[300px]">
                 <CourtMap 
                   location={court}
