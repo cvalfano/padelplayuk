@@ -37,7 +37,7 @@ export default function Navbar() {
                     key={item.name}
                     to={item.href}
                     className={`
-                      relative px-2 py-2 text-base font-medium
+                      relative px-2 py-2 text-lg font-medium
                       transition-colors duration-200 ease-in-out
                       ${isActive ? 'text-white' : 'text-white/70 hover:text-white'}
                     `}
@@ -64,7 +64,7 @@ export default function Navbar() {
                     key={item.name}
                     to={item.href}
                     className={`
-                      relative px-2 py-2 text-sm font-medium
+                      relative px-2 py-2 text-base font-medium
                       transition-colors duration-200 ease-in-out
                       ${isActive ? 'text-white' : 'text-white/70 hover:text-white'}
                     `}
