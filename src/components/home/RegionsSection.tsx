@@ -4,7 +4,11 @@ import { ArrowRight } from 'lucide-react';
 import { theme } from '../../utils/theme';
 import { useRegionCounts } from '../../hooks/useRegionCounts';
 
-export default function RegionsSection() {
+interface RegionsSectionProps {
+  viewAllButtonClasses: string;
+}
+
+export default function RegionsSection({ viewAllButtonClasses }: RegionsSectionProps) {
   const { regionCounts, loading } = useRegionCounts();
 
   return (
@@ -16,7 +20,7 @@ export default function RegionsSection() {
         </div>
         <Link
           to="/locations"
-          className="group inline-flex items-center text-sm border-2 border-white text-white hover:bg-white hover:text-dark rounded-full px-4 py-2 transition-all duration-200"
+          className={viewAllButtonClasses}
         >
           View all
           <ArrowRight className="ml-2 h-5 w-5 transform transition-transform duration-200 group-hover:translate-x-1" />
@@ -25,7 +29,6 @@ export default function RegionsSection() {
       
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {loading ? (
-          // Loading skeleton
           Array.from({ length: 12 }).map((_, index) => (
             <div key={index} className="animate-pulse">
               <div className="flex items-center gap-3">
@@ -43,7 +46,7 @@ export default function RegionsSection() {
               className="group"
             >
               <div className="flex items-center gap-3">
-                <div className="w-3 h-3 rounded-full bg-white/20 group-hover:bg-white transition-colors"></div>
+                <div className="w-3 h-3 rounded-full bg-white/20 group-hover:bg-[#E1FF5E] transition-colors"></div>
                 <span className="text-white/90 font-medium group-hover:text-white transition-colors">
                   {region}
                 </span>

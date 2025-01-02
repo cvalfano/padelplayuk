@@ -14,12 +14,12 @@ interface LocationsFiltersProps {
 
 export default function LocationsFilters({ 
   onSearch, 
-  onFilterChange, 
+  onFilterChange,
   onRegionChange,
   activeFilters,
   selectedRegions 
 }: LocationsFiltersProps) {
-  const [openSections, setOpenSections] = useState<string[]>(['search', 'regions']);
+  const [openSections, setOpenSections] = useState<string[]>(['search']);
 
   const toggleSection = (section: string) => {
     setOpenSections(prev => 

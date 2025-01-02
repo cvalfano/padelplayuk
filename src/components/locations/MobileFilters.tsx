@@ -29,7 +29,7 @@ export default function MobileFilters({
         onClick={() => setIsExpanded(false)}
       />
       
-      <div className="relative bg-dark border-t border-white/10">
+      <div className="relative bg-[#060836] border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
@@ -44,7 +44,7 @@ export default function MobileFilters({
         <div 
           className={`
             absolute bottom-full left-0 right-0 transition-all duration-300 
-            bg-dark border-t border-white/10
+            bg-[#060836] border-t border-white/10
             ${isExpanded ? 'max-h-[70vh]' : 'max-h-0'}
           `}
           style={{ 

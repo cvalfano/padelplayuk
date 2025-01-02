@@ -12,7 +12,7 @@ export default function BlogCard({ post }: BlogCardProps) {
     <Link 
       to={`/blog/${post.id}`}
       className={`
-        block ${theme.card.base} overflow-hidden
+        block bg-[#060836] border border-white/10 rounded-lg shadow-lg overflow-hidden
         transition-all duration-300 ease-out
         hover:shadow-2xl hover:shadow-white/5
         hover:translate-y-[-4px]
@@ -33,7 +33,9 @@ export default function BlogCard({ post }: BlogCardProps) {
           {post.label}
         </span>
         <time className="block mt-3 text-sm text-white/60">{post.date}</time>
-        <h3 className={`${theme.text.heading} text-xl mt-2`}>{post.title}</h3>
+        <h3 className={`${theme.text.heading} text-xl mt-2 text-white hover:text-[#E1FF5E] transition-colors duration-200`}>
+          {post.title}
+        </h3>
         <p className={`${theme.text.secondary} mt-3 line-clamp-3`}>{post.excerpt}</p>
       </div>
     </Link>

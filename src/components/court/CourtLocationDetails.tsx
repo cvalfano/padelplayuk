@@ -33,7 +33,7 @@ export default function CourtLocationDetails({ location }: CourtLocationDetailsP
           href={googleMapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center gap-2 ${theme.text.secondary} hover:text-white transition-colors`}
+          className="flex items-center gap-2 text-white hover:text-[#E1FF5E] transition-colors duration-200"
         >
           <Navigation className="h-4 w-4" />
           <span>Directions in Google Maps</span>
@@ -42,7 +42,7 @@ export default function CourtLocationDetails({ location }: CourtLocationDetailsP
           href={appleMapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center gap-2 ${theme.text.secondary} hover:text-white transition-colors`}
+          className="flex items-center gap-2 text-white hover:text-[#E1FF5E] transition-colors duration-200"
         >
           <Map className="h-4 w-4" />
           <span>Directions in Apple Maps</span>

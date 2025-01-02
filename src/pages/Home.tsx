@@ -35,6 +35,13 @@ export default function Home() {
     fetchRecentCourts();
   }, []);
 
+  const viewAllButtonClasses = `
+    group relative inline-flex items-center text-sm text-[#E1FF5E] 
+    rounded-full px-4 py-2 transition-all duration-200
+    border-2 border-[#E1FF5E]
+    hover:bg-[#E1FF5E] hover:text-dark
+  `;
+
   return (
     <div className="min-h-screen bg-dark">
       {/* Hero Section */}
@@ -52,7 +59,7 @@ export default function Home() {
                 </h1>
                 <Link
                   to="/locations"
-                  className="group inline-flex items-center text-lg bg-white text-dark hover:bg-white/90 font-bold rounded-full py-2 px-6 transition-all duration-200"
+                  className={`${theme.button.primary} ${theme.button.base} inline-flex items-center text-lg`}
                 >
                   Explore locations
                   <ArrowRight className="ml-2 h-5 w-5 transform transition-transform duration-200 group-hover:translate-x-1" />
@@ -72,7 +79,7 @@ export default function Home() {
           </div>
           <Link
             to="/locations"
-            className="group inline-flex items-center text-sm border-2 border-white text-white hover:bg-white hover:text-dark rounded-full px-4 py-2 transition-all duration-200"
+            className={viewAllButtonClasses}
           >
             View all
             <ArrowRight className="ml-2 h-5 w-5 transform transition-transform duration-200 group-hover:translate-x-1" />
@@ -102,7 +109,7 @@ export default function Home() {
       </div>
 
       {/* Regions Section */}
-      <RegionsSection />
+      <RegionsSection viewAllButtonClasses={viewAllButtonClasses} />
     </div>
   );
 }

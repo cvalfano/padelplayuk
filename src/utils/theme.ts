@@ -1,15 +1,16 @@
 export const theme = {
   card: {
-    base: "bg-dark/50 border border-white/10 rounded-lg shadow-lg backdrop-blur-sm",
+    base: "bg-[#060836]/40 border border-white/10 rounded-lg shadow-lg backdrop-blur-sm",
     hover: "hover:border-white/20 transition-colors duration-200",
   },
   text: {
     primary: "text-white",
     secondary: "text-white/70",
     heading: "font-black tracking-tight",
+    link: "text-[#E1FF5E] hover:underline transition-colors duration-200"
   },
   button: {
-    primary: "bg-white text-dark hover:bg-white/90 font-bold rounded-full",
+    primary: "bg-[#E1FF5E] text-dark hover:bg-[#E1FF5E]/90 font-bold rounded-full",
     secondary: "border-2 border-white text-white hover:bg-white hover:text-dark rounded-full",
     base: "px-4 py-2 transition-all duration-200",
   },

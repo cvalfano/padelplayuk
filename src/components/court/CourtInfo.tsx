@@ -17,14 +17,20 @@ export default function CourtInfo({ court }: CourtInfoProps) {
           {court.website && (
             <div className="flex items-center">
               <Globe className="h-5 w-5 mr-2 text-white/70" />
-              <a href={court.website} className={`${theme.text.secondary} hover:text-white`}>
+              <a 
+                href={court.website} 
+                className="text-white hover:text-[#E1FF5E] transition-colors duration-200"
+              >
                 {court.website}
               </a>
             </div>
           )}
           <div className="flex items-center">
             <Mail className="h-5 w-5 mr-2 text-white/70" />
-            <a href={`mailto:${court.email}`} className={`${theme.text.secondary} hover:text-white`}>
+            <a 
+              href={`mailto:${court.email}`} 
+              className="text-white hover:text-[#E1FF5E] transition-colors duration-200"
+            >
               {court.email}
             </a>
           </div>
