@@ -17,13 +17,13 @@ export default function Navbar() {
   return (
     <nav className="bg-dark border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-20">
           <div className="flex items-center gap-8">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center py-4">
               <img 
-                src="https://github.com/cvalfano/padelplayuk/blob/main/images/logo.png?raw=true" 
+                src="https://github.com/cvalfano/padelplayuk/blob/main/images/logo-horizontal.png?raw=true" 
                 alt="Padel Play UK"
-                className="h-8 w-auto"
+                className="h-12 w-auto"
               />
             </Link>
 
