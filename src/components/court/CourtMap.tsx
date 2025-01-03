@@ -1,5 +1,4 @@
 import React from 'react';
-import { theme } from '../../utils/theme';
 import { getStaticMapUrl } from '../../utils/mapbox';
 import type { Database } from '../../types/supabase';
 
@@ -18,7 +17,7 @@ export default function CourtMap({ location, className = '' }: CourtMapProps) {
   const mapUrl = getStaticMapUrl(location.lng, location.lat, 800, 600);
 
   return (
-    <div className={`${theme.card.base} overflow-hidden relative ${className}`}>
+    <div className={`${className} overflow-hidden rounded-lg`}>
       <img
         src={mapUrl}
         alt={`Map location for ${location.name}`}

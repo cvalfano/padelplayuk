@@ -4,7 +4,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: 'welcome-to-clubhouse',
     title: "Welcome to the Clubhouse",
-    date: "31st December 2023",
+    date: "31st January 2024",
     label: "announcements",
     image: "https://plus.unsplash.com/premium_photo-1707862953516-9dd3032b69a8?w=1200&auto=format&fit=crop&q=60",
     excerpt: "Welcome to Padel Play UK! We're thrilled to have you here at our digital clubhouse where padel enthusiasts across the United Kingdom can discover and connect with courts nationwide.",
