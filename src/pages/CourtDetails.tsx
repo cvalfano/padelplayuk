@@ -51,13 +51,13 @@ export default function CourtDetails() {
             <div className="space-y-5">
               <CourtInfo court={court} />
               <CourtAmenities amenities={court.amenities || []} />
-              <CourtRules rules={court.rules || []} />
             </div>
           </div>
           
           <div className="hidden lg:block lg:col-span-1">
             <div className="sticky top-24 space-y-5">
               <CourtLocationDetails location={court} />
+              <CourtRules rules={court.rules || []} />
               <DisclaimerMessage />
             </div>
           </div>
@@ -65,6 +65,7 @@ export default function CourtDetails() {
 
         <div id="contact-section" className="lg:hidden mt-5 space-y-5">
           <CourtLocationDetails location={court} />
+          <CourtRules rules={court.rules || []} />
           <DisclaimerMessage />
         </div>
 

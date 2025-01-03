@@ -6,15 +6,14 @@ export const blogPosts: BlogPost[] = [
     title: "Welcome to the Clubhouse",
     date: "31st January 2024",
     label: "announcements",
-    image: "https://plus.unsplash.com/premium_photo-1707862953516-9dd3032b69a8?w=1200&auto=format&fit=crop&q=60",
-    excerpt: "Welcome to Padel Play UK! We're thrilled to have you here at our digital clubhouse where padel enthusiasts across the United Kingdom can discover and connect with courts nationwide.",
-    content: `Welcome to Padel Play UK! We're thrilled to have you here at our digital clubhouse where padel enthusiasts across the United Kingdom can discover and connect with courts nationwide.
+    excerpt: "We're really excited to have you here at the start of this journey. Padel is growing across the UK, and we're here to help you find courts and connect with others who love the game.",
+    content: `We're really excited to have you here at the start of this journey. Padel is growing across the UK, and we're here to help you find courts and connect with others who love the game.
 
-As we're just getting started, you might encounter a few bugs, glitches, or typos along the way. Please know that we're actively working to improve the platform and enhance your experience.
+As we're just getting things off the ground, you might notice a few bugs or small issues. We're working hard to fix them, so thanks for being patient with us!
 
-Your feedback is invaluable to us. If you spot something that needs attention or have suggestions for improvement, don't hesitate to reach out. We're building this platform for the padel community, and your input helps shape its development.
+We'd love to hear from you. If you spot something that needs attention or have ideas on how we can improve, please reach out. This platform is for you, the padel community, and your feedback is super important to us.
 
-Thank you for being part of our early journey. Together, we're making padel more accessible across the UK, one court at a time.`,
+— Chloe`,
     readingTime: "1 min read"
   }
 ];

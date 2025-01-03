@@ -1,7 +1,9 @@
 export const regions = [
-  'East England',
+  'East Anglia',
   'East Midlands',
-  'London',
+  'Greater London',
+  'Isle of Man',
+  'Isle of Wight',
   'North East',
   'North West',
   'Northern Ireland',

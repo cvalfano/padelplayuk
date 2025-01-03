@@ -22,7 +22,7 @@ export default function MobileContactBar({ website }: MobileContactBarProps) {
       <div className="bg-dark/80 backdrop-blur-sm border-t border-white/10 px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="text-white font-medium">
-            Ready to play?
+            Book your court today
           </div>
           <a
             href={website}

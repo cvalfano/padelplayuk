@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, ChevronDown } from 'lucide-react';
 import FilterOption from './FilterOption';
 import { theme } from '../../utils/theme';
@@ -10,6 +10,7 @@ interface LocationsFiltersProps {
   onRegionChange: (regions: string[]) => void;
   activeFilters: string[];
   selectedRegions: string[];
+  initialRegion?: string | null;
 }
 
 export default function LocationsFilters({ 
@@ -17,9 +18,17 @@ export default function LocationsFilters({
   onFilterChange,
   onRegionChange,
   activeFilters,
-  selectedRegions 
+  selectedRegions,
+  initialRegion
 }: LocationsFiltersProps) {
-  const [openSections, setOpenSections] = useState<string[]>(['search']);
+  const [openSections, setOpenSections] = useState<string[]>(['search', 'regions']);
+
+  // Set initial region if provided
+  useEffect(() => {
+    if (initialRegion && !selectedRegions.includes(initialRegion)) {
+      onRegionChange([initialRegion]);
+    }
+  }, [initialRegion]);
 
   const toggleSection = (section: string) => {
     setOpenSections(prev => 
@@ -30,6 +39,11 @@ export default function LocationsFilters({
   };
 
   const handleRegionToggle = (region: string) => {
+    if (region === 'all') {
+      onRegionChange([]);
+      return;
+    }
+    
     const newRegions = selectedRegions.includes(region)
       ? selectedRegions.filter(r => r !== region)
       : [...selectedRegions, region];
@@ -37,7 +51,7 @@ export default function LocationsFilters({
   };
 
   return (
-    <div className="w-full lg:w-64 space-y-6">
+    <div className="w-full lg:w-72 space-y-6">
       <h2 className={`${theme.text.heading} mb-4`}>Filters</h2>
       
       <div className="space-y-4">
@@ -85,7 +99,13 @@ export default function LocationsFilters({
           </button>
           
           {openSections.includes('regions') && (
-            <div className="mt-2 space-y-2">
+            <div className="mt-2 space-y-1">
+              <FilterOption
+                id="all"
+                label="All Regions"
+                checked={selectedRegions.length === 0}
+                onChange={() => handleRegionToggle('all')}
+              />
               {regions.map((region) => (
                 <FilterOption
                   key={region}

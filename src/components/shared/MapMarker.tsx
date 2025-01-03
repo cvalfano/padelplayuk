@@ -9,7 +9,7 @@ interface MapMarkerProps {
 export default function MapMarker({ onClick, className = '' }: MapMarkerProps) {
   return (
     <div 
-      className={`bg-[#000000] p-1.5 rounded-full cursor-pointer shadow-lg transform-gpu hover:scale-110 transition-all duration-200 ${className}`}
+      className={`bg-black p-1.5 rounded-full cursor-pointer shadow-lg transform-gpu hover:scale-110 transition-all duration-200 ${className}`}
       onClick={onClick}
     >
       <MapPin 

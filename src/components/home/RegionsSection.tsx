@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { theme } from '../../utils/theme';
 import { useRegionCounts } from '../../hooks/useRegionCounts';
+import { regions } from '../../constants/regions';
 
 interface RegionsSectionProps {
   viewAllButtonClasses: string;
@@ -10,6 +11,22 @@ interface RegionsSectionProps {
 
 export default function RegionsSection({ viewAllButtonClasses }: RegionsSectionProps) {
   const { regionCounts, loading } = useRegionCounts();
+
+  // Create a map of all regions with count 0
+  const allRegionsMap = Object.fromEntries(
+    regions.map(region => [region, 0])
+  );
+
+  // Update counts from actual data
+  regionCounts.forEach(({ region, count }) => {
+    if (allRegionsMap.hasOwnProperty(region)) {
+      allRegionsMap[region] = count;
+    }
+  });
+
+  // Convert back to array format
+  const completeRegionCounts = Object.entries(allRegionsMap)
+    .map(([region, count]) => ({ region, count }));
 
   return (
     <div className="max-w-7xl mx-auto px-3 sm:px-8 pb-16">
@@ -38,8 +55,8 @@ export default function RegionsSection({ viewAllButtonClasses }: RegionsSectionP
               <div className="mt-2 ml-6 h-4 bg-white/10 rounded w-16"></div>
             </div>
           ))
-        ) : regionCounts.length > 0 ? (
-          regionCounts.map(({ region, count }) => (
+        ) : completeRegionCounts.length > 0 ? (
+          completeRegionCounts.map(({ region, count }) => (
             <Link
               key={region}
               to={`/locations?region=${encodeURIComponent(region)}`}

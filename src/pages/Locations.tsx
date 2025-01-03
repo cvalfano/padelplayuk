@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import LocationsFilters from '../components/locations/LocationsFilters';
 import MobileFilters from '../components/locations/MobileFilters';
 import LocationsList from '../components/locations/LocationsList';
@@ -9,10 +10,20 @@ import { theme } from '../utils/theme';
 const COURTS_PER_PAGE = 12;
 
 export default function Locations() {
+  const [searchParams] = useSearchParams();
+  const regionParam = searchParams.get('region');
+  
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedRegions, setSelectedRegions] = useState<string[]>([]);
+  const [selectedRegions, setSelectedRegions] = useState<string[]>(
+    regionParam ? [regionParam] : []
+  );
+
+  // Reset page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, selectedRegions.join(','), activeFilters.join(',')]);
 
   const { courts, totalCourts, loading, error } = useCourts({
     page: currentPage,
@@ -48,7 +59,9 @@ export default function Locations() {
         <div className="text-center mb-8">
           <h1 className={theme.text.heading}>Find Padel Courts</h1>
           <p className={`mt-4 text-lg ${theme.text.secondary}`}>
-            Discover {totalCourts} padel courts across the UK
+            {selectedRegions.length === 1
+              ? `Discover ${totalCourts} padel courts in ${selectedRegions[0]}`
+              : `Discover ${totalCourts} padel courts across the UK`}
           </p>
         </div>
 
@@ -60,6 +73,7 @@ export default function Locations() {
               onRegionChange={setSelectedRegions}
               activeFilters={activeFilters}
               selectedRegions={selectedRegions}
+              initialRegion={regionParam}
             />
           </div>
 
@@ -81,6 +95,7 @@ export default function Locations() {
         onRegionChange={setSelectedRegions}
         activeFilters={activeFilters}
         selectedRegions={selectedRegions}
+        initialRegion={regionParam}
       />
     </div>
   );

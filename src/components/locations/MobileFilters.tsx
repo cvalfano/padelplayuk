@@ -8,6 +8,7 @@ interface MobileFiltersProps {
   onRegionChange: (regions: string[]) => void;
   activeFilters: string[];
   selectedRegions: string[];
+  initialRegion?: string | null;
 }
 
 export default function MobileFilters({ 
@@ -15,7 +16,8 @@ export default function MobileFilters({
   onFilterChange,
   onRegionChange,
   activeFilters,
-  selectedRegions
+  selectedRegions,
+  initialRegion
 }: MobileFiltersProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -60,6 +62,7 @@ export default function MobileFilters({
               onRegionChange={onRegionChange}
               activeFilters={activeFilters}
               selectedRegions={selectedRegions}
+              initialRegion={initialRegion}
             />
           </div>
         </div>
