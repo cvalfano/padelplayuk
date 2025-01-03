@@ -14,8 +14,8 @@ export default function CourtRules({ rules }: CourtRulesProps) {
   }
 
   return (
-    <div className="py-5 border-b border-white/10">
-      <h2 className={`${theme.text.heading} text-2xl mb-4`}>Court rules</h2>
+    <div className="pt-5 lg:pb-16">
+      <h3 className={`${theme.text.heading} text-xl mb-4`}>Court Rules</h3>
       <ul className="space-y-3">
         {rules.map((rule, index) => (
           <li key={index} className="flex items-start gap-2">

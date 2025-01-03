@@ -50,15 +50,22 @@ export default function CourtDetails() {
           <div className="lg:col-span-2">
             <div className="space-y-5">
               <CourtInfo court={court} />
-              <CourtAmenities amenities={court.amenities || []} />
+              <div className="hidden lg:block">
+                <div className="space-y-0">
+                  <CourtAmenities amenities={court.amenities || []} />
+                  <CourtRules rules={court.rules || []} />
+                  <DisclaimerMessage />
+                </div>
+              </div>
+              <div className="lg:hidden">
+                <CourtAmenities amenities={court.amenities || []} />
+              </div>
             </div>
           </div>
           
           <div className="hidden lg:block lg:col-span-1">
-            <div className="sticky top-24 space-y-5">
+            <div className="sticky top-24">
               <CourtLocationDetails location={court} />
-              <CourtRules rules={court.rules || []} />
-              <DisclaimerMessage />
             </div>
           </div>
         </div>
