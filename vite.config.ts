@@ -6,5 +6,5 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: '/', // Remove the /padelplayuk/ base as we're using a custom domain
+  base: '/padelplayuk/', // Add back the base URL for GitHub Pages
 });
