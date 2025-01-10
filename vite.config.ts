@@ -7,7 +7,5 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: process.env.GITHUB_PAGES  // Set base URL for GitHub Pages
-    ? '/padelplayuk/'  // Your actual repository name
-    : '/',
+  base: '/padelplayuk/', // Always use the repository name as base
 });
