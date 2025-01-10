@@ -1,11 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: '/padelplayuk/', // Always use the repository name as base
+  base: '/', // Remove the /padelplayuk/ base as we're using a custom domain
 });
