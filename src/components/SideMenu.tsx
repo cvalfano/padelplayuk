@@ -11,7 +11,7 @@ interface SideMenuProps {
 const menuItems = [
   { name: 'About', href: '/about' },
   { name: 'How It Works', href: '/how-it-works' },
-  { name: 'Contact', href: '/contact' }
+  { name: 'List Your Court', href: '/list-court' }
 ];
 
 export default function SideMenu({ isOpen, onClose }: SideMenuProps) {

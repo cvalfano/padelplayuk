@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Search, MapPin, Mail } from 'lucide-react';
+import { ArrowLeft, Search, MapPin, Mail, ArrowRight } from 'lucide-react';
 import { theme } from '../utils/theme';
 
 export default function HowItWorks() {
@@ -63,6 +63,21 @@ export default function HowItWorks() {
               the provided contact information. Many venues offer online booking systems through 
               their websites, while others accept bookings by phone or email.
             </p>
+          </section>
+
+          <section className="bg-[#080B3C] rounded-lg p-6">
+            <h2 className={`${theme.text.heading} text-2xl mb-4`}>Own a Padel Court?</h2>
+            <p className={`${theme.text.secondary} mb-6`}>
+              Help us grow the padel community by adding your court to our directory. Submit your court details 
+              and we'll review and list it on Padel Play UK.
+            </p>
+            <Link
+              to="/list-court"
+              className={`${theme.button.primary} ${theme.button.base} inline-flex items-center`}
+            >
+              List your court
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
           </section>
         </div>
       </div>

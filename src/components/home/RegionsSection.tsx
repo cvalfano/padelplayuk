@@ -10,19 +10,21 @@ interface RegionsSectionProps {
 }
 
 export default function RegionsSection({ viewAllButtonClasses }: RegionsSectionProps) {
-  const { regionCounts, loading } = useRegionCounts();
+  const { regionCounts, loading, error } = useRegionCounts();
 
   // Create a map of all regions with count 0
   const allRegionsMap = Object.fromEntries(
     regions.map(region => [region, 0])
   );
 
-  // Update counts from actual data
-  regionCounts.forEach(({ region, count }) => {
-    if (allRegionsMap.hasOwnProperty(region)) {
-      allRegionsMap[region] = count;
-    }
-  });
+  // Update counts from actual data if available
+  if (!error && regionCounts) {
+    regionCounts.forEach(({ region, count }) => {
+      if (allRegionsMap.hasOwnProperty(region)) {
+        allRegionsMap[region] = count;
+      }
+    });
+  }
 
   // Convert back to array format
   const completeRegionCounts = Object.entries(allRegionsMap)
@@ -55,7 +57,24 @@ export default function RegionsSection({ viewAllButtonClasses }: RegionsSectionP
               <div className="mt-2 ml-6 h-4 bg-white/10 rounded w-16"></div>
             </div>
           ))
-        ) : completeRegionCounts.length > 0 ? (
+        ) : error ? (
+          <div className="col-span-full">
+            {completeRegionCounts.map(({ region }) => (
+              <Link
+                key={region}
+                to={`/locations?region=${encodeURIComponent(region)}`}
+                className="group block mb-4"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 rounded-full bg-white/20 group-hover:bg-[#E1FF5E] transition-colors"></div>
+                  <span className="text-white/90 font-medium group-hover:text-white transition-colors">
+                    {region}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        ) : (
           completeRegionCounts.map(({ region, count }) => (
             <Link
               key={region}
@@ -75,10 +94,6 @@ export default function RegionsSection({ viewAllButtonClasses }: RegionsSectionP
               </div>
             </Link>
           ))
-        ) : (
-          <div className="col-span-full text-center text-white/70">
-            No regions found
-          </div>
         )}
       </div>
     </div>

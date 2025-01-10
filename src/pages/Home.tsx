@@ -59,7 +59,7 @@ export default function Home() {
                 </h1>
                 <Link
                   to="/locations"
-                  className={`${theme.button.primary} ${theme.button.base} inline-flex items-center text-lg`}
+                  className={`${theme.button.primary} ${theme.button.base} inline-flex items-center text-lg group`}
                 >
                   Explore locations
                   <ArrowRight className="ml-2 h-5 w-5 transform transition-transform duration-200 group-hover:translate-x-1" />
@@ -71,7 +71,7 @@ export default function Home() {
       </div>
 
       {/* Recently Added Section */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-8 pb-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-8 pb-12">
         <div className="flex items-center justify-between mb-12">
           <div>
             <span className="text-sm uppercase tracking-wider text-white/50 block mb-2">LOCATIONS</span>
@@ -110,6 +110,27 @@ export default function Home() {
 
       {/* Regions Section */}
       <RegionsSection viewAllButtonClasses={viewAllButtonClasses} />
+
+      {/* List Your Court Section */}
+      <div className="max-w-7xl mx-auto px-3 sm:px-8 pb-16">
+        <div className="bg-[#080B3C] rounded-lg overflow-hidden">
+          <div className="relative py-12 px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h2 className={`${theme.text.heading} text-xl sm:text-3xl mb-8`}>Own a Padel Court?</h2>
+              <p className={`${theme.text.secondary} text-lg max-w-2xl mx-auto mb-8`}>
+                List your court on Padel Play UK and reach thousands of players looking for their next game.
+              </p>
+              <Link
+                to="/list-court"
+                className={`${theme.button.primary} ${theme.button.base} inline-flex items-center text-lg group`}
+              >
+                List your court
+                <ArrowRight className="ml-2 h-5 w-5 transform transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

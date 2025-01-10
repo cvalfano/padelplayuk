@@ -10,6 +10,7 @@ import Map from './pages/Map';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import CourtDetails from './pages/CourtDetails';
+import ListCourt from './pages/ListCourt';
 import About from './pages/About';
 import HowItWorks from './pages/HowItWorks';
 import Contact from './pages/Contact';
@@ -30,6 +31,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/courts/:id" element={<CourtDetails />} />
+            <Route path="/list-court" element={<ListCourt />} />
             <Route path="/about" element={<About />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/contact" element={<Contact />} />
@@ -43,7 +45,6 @@ function App() {
   );
 }
 
-// Add NotFound component for 404 pages
 function NotFound() {
   return (
     <div className="min-h-[50vh] flex items-center justify-center">

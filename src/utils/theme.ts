@@ -11,7 +11,7 @@ export const theme = {
   },
   button: {
     primary: "bg-[#E1FF5E] text-dark hover:bg-[#E1FF5E]/90 font-bold rounded-full",
-    secondary: "border-2 border-white text-white hover:bg-white hover:text-dark rounded-full",
+    secondary: "border-2 border-[#E1FF5E] text-[#E1FF5E] hover:bg-[#E1FF5E] hover:text-dark rounded-full",
     base: "px-4 py-2 transition-all duration-200",
   },
   input: {
